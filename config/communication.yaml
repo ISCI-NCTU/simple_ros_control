@@ -1,0 +1,7 @@
+#serial:
+#    port:
+#    baudrate: 
+#    databits:
+#    stopbit:
+#    parity:
+#    hardware_flow_control:
