@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(simple_ros_control)
+project(simple_ros_control_main)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -127,14 +127,14 @@ add_library(sp_hardware_interface src/sp_hardware_interface.cpp)
 # add_dependencies(iceira_diff_ros_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(simple_ros_control src/sp_main.cpp)
+add_executable(simple_ros_control_main src/sp_main.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(iceira_diff_ros_control_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(simple_ros_control sp_hardware_interface ${catkin_LIBRARIES})
+target_link_libraries(simple_ros_control_main sp_hardware_interface ${catkin_LIBRARIES})
 
 #############
 ## Install ##

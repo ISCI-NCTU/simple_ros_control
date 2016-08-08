@@ -1,23 +1,21 @@
 #include <sstream>
-#include "sp_hardware_interface.h"
+#include <sp_robot_hw_interface/sp_robot_hw_interface.h>
 
-SpHwInterface::SpHwInterface(
-	unsigned int m_n_dof_, unsigned int m_update_freq_, 
-	std::vector<std::string> m_jnt_names_, std::vector<float> m_gear_ratios_)
+SpHwInterface::SpHwInterface():
+    n_dof_(3)
 {
-  // Initialize private members
-  n_dof_ = m_n_dof_;
-  update_freq_ = m_update_freq_ ;
-  jnt_names_= m_jnt_names_;
-  gear_ratios_= m_gear_ratios_; 
-
   // Cleanup
   jnt_curr_pos_.clear();
   jnt_curr_vel_.clear();
   jnt_curr_eff_.clear();
   jnt_cmd_pos_.clear();
+ 
+  // Joints
+  jnt_names_.push_back("joint1");
+  jnt_names_.push_back("joint2");
+  jnt_names_.push_back("joint_eef");
 
-  // Raw Data
+  //Raw Data
   jnt_curr_pos_.resize(n_dof_);
   jnt_curr_vel_.resize(n_dof_);
   jnt_curr_eff_.resize(n_dof_);
@@ -43,9 +41,25 @@ SpHwInterface::~SpHwInterface()
 {
 }
 
-void SpHwInterface::update()
+void SpHwInterface::read()
 {
-	std::cout << "update at " << std::setprecision(13) << ros::Time::now().toSec() << " s : " << std::endl;
+  //std::cout << "read:" << std::endl;
+  for(size_t i = 0; i < n_dof_; i++)
+  {
+    jnt_curr_pos_[i] = jnt_cmd_pos_[i];
+    //std::cout << jnt_names_[i] << ": "<< jnt_curr_pos_[i] << std::endl;
+  }
+
+  //std::cout << std::endl; 
+}
+
+void SpHwInterface::write()
+{
+  std::cout << "write at " << std::setprecision(13) << ros::Time::now().toSec() << " s : " << std::endl;
+  for(size_t i = 0; i < n_dof_; i++)
+    std::cout << jnt_names_[i] << ": "<< jnt_cmd_pos_[i] << std::endl;
+
+  std::cout << std::endl;
 }
 
 ros::Time SpHwInterface::getTime() const 
@@ -55,6 +69,6 @@ ros::Time SpHwInterface::getTime() const
 
 ros::Duration SpHwInterface::getPeriod() const 
 {
-    return ros::Duration(1 / update_freq_);
+    return ros::Duration(0.001);
 }
 
