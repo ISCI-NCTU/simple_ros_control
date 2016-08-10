@@ -14,8 +14,6 @@
 #include <transmission_interface/simple_transmission.h>
 #include <transmission_interface/transmission_interface.h>
 
-#define NDOF 3 
-#define ENC_FULL 10000
 #define PI 3.1415926
 
 class SpHwInterface : public hardware_interface::RobotHW
