@@ -1,6 +1,6 @@
 
-#ifndef SP_ROBOT_HW_INTERFACE_H
-#define SP_ROBOT_HW_INTERFACE_H
+#ifndef SIMPLE_HARDWARE_INTERFACE_H 
+#define SIMPLE_HARDWARE_INTERFACE_H 
 
 #include <vector>
 #include <iostream>
@@ -46,4 +46,4 @@ private:
 
 };
 
-#endif // SP_ROBOT_HW_INTERFACE_H
+#endif 

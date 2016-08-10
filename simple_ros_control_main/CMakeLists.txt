@@ -119,7 +119,7 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library(sp_hardware_interface src/sp_hardware_interface.cpp)
+add_library(simple_hardware_interface src/simple_hardware_interface.cpp)
 #target_link_libraries(sp_robot_hw_interface sp_ethercat ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -134,7 +134,7 @@ add_executable(simple_ros_control_main src/sp_main.cpp)
 # add_dependencies(iceira_diff_ros_control_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(simple_ros_control_main sp_hardware_interface ${catkin_LIBRARIES})
+target_link_libraries(simple_ros_control_main simple_hardware_interface ${catkin_LIBRARIES})
 
 #############
 ## Install ##

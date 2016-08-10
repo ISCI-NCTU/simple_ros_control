@@ -1,9 +1,9 @@
-#include <sp_robot_hw_interface/sp_robot_hw_interface.h>
+#include <simple_hardware_interface.h>
 
 int main(int argc, char **argv)
 {
   // initialize ros
-  ros::init(argc, argv, "sp_robot_ros_control_node");
+  ros::init(argc, argv, "simple_ros_control");
   ros::NodeHandle nh;
 
   SpHwInterface robot;
