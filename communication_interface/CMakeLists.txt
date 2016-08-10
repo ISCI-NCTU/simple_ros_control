@@ -1,15 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(simple_ros_control_main)
+project(communication_interface)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  controller_manager
-  hardware_interface
-  roscpp
-  communication_interface
-)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -101,9 +96,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-   INCLUDE_DIRS include
-#  LIBRARIES iceira_diff_hardware_interface iceira_diff_serial
-   CATKIN_DEPENDS controller_manager hardware_interface roscpp communication_interface
+#  INCLUDE_DIRS include
+#  LIBRARIES communication_interface
+#  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
 
@@ -113,31 +108,30 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)
+include_directories(include)
 
 ## Declare a C++ library
-#add_library(communication_interface src/communication_interface.cpp)
-add_library(simple_hardware_interface src/simple_hardware_interface.cpp)
-target_link_libraries(simple_hardware_interface communication_interface)
-#target_link_libraries(sp_robot_hw_interface sp_ethercat ${catkin_LIBRARIES})
+# add_library(communication_interface
+#   src/${PROJECT_NAME}/communication_interface.cpp
+# )
+add_library(communication_interface src/communication_interface.cpp)
+
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(iceira_diff_ros_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(communication_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(simple_ros_control_main src/sp_main.cpp)
+# add_executable(communication_interface_node src/communication_interface_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(iceira_diff_ros_control_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(communication_interface_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(simple_ros_control_main simple_hardware_interface ${catkin_LIBRARIES})
+# target_link_libraries(communication_interface_node
+#   ${catkin_LIBRARIES}
+# )
 
 #############
 ## Install ##
@@ -154,18 +148,18 @@ target_link_libraries(simple_ros_control_main simple_hardware_interface ${catkin
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS iceira_diff_ros_control iceira_diff_ros_control_node
+# install(TARGETS communication_interface communication_interface_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
 ## Mark cpp header files for installation
-#install(DIRECTORY include/${PROJECT_NAME}/
-#  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#  FILES_MATCHING PATTERN "*.h"
-#  PATTERN ".svn" EXCLUDE
-#)
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".svn" EXCLUDE
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES
@@ -179,7 +173,7 @@ target_link_libraries(simple_ros_control_main simple_hardware_interface ${catkin
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_iceira_diff_ros_control.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_communication_interface.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
