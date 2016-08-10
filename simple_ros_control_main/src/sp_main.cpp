@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 	std::cout << "update frequency = " << update_freq_ << std::endl;
 
 
-  SpHwInterface robot;
+  SpHwInterface robot(n_dof_, update_freq_, jnt_names_, gear_ratios_);
   controller_manager::ControllerManager cm(&robot, nh);
 
   // start loop
