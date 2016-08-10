@@ -1,4 +1,4 @@
-#include <simple_hardware_interface.h>
+#include <simple_ros_control_main/simple_hardware_interface.h>
 #include <iostream>
 
 int main(int argc, char **argv)

@@ -1,5 +1,5 @@
 #include <sstream>
-#include <simple_hardware_interface.h>
+#include <simple_ros_control_main/simple_hardware_interface.h>
 
 int count = 0;
 
@@ -73,4 +73,3 @@ ros::Duration SpHwInterface::getPeriod() const
 {
     return ros::Duration(0.001);
 }
-
