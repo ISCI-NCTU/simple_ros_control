@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   controller_manager
   hardware_interface
   roscpp
+  ethercat_igh
 )
 
 ## System dependencies are found with CMake's conventions
@@ -120,6 +121,7 @@ include_directories(
 
 ## Declare a C++ library
 add_library(simple_hardware_interface src/simple_hardware_interface.cpp)
+target_link_libraries(simple_hardware_interface ethercat_igh)
 #target_link_libraries(sp_robot_hw_interface sp_ethercat ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

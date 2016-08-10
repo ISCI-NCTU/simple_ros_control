@@ -1,6 +1,18 @@
 #include <sstream>
 #include <simple_hardware_interface.h>
 
+extern "C" {
+	#include "ethercat_igh.h"
+}
+
+// Ethercat Related
+int curr_pos = 0;
+int eth_enc_offset_[3];
+int cmd_pos_offset_[3];
+int *eth_curr_pos_temp_;
+int *eth_home_pos_temp_;
+
+
 int count = 0;
 
 SpHwInterface::SpHwInterface(
@@ -38,6 +50,8 @@ SpHwInterface::SpHwInterface(
   }
   registerInterface(&jnt_state_interface_);
   registerInterface(&jnt_pos_interface_);
+
+  // Ethercat related
 
 }
 

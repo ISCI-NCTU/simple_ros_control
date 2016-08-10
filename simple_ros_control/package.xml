@@ -15,6 +15,7 @@
   <run_depend>simple_robot_moveit_config</run_depend>
   <run_depend>simple_robot_description</run_depend>
   <run_depend>simple_ros_control_main</run_depend>
+  <run_depend>ethercat_igh</run_depend>
 
   <export>
      <metapackage/>
