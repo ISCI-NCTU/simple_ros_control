@@ -7,8 +7,9 @@ namespace communication_interface
 {
   void init();
   void terminate();
-  std::vector<int> get_curr_pos();
-  std::vector<int> update(std::vector<int>);
+  std::vector<double> get_curr_pos();
+  std::vector<double> update(std::vector<double>);
+  void write_cmd_pos(std::vector<double>);
 }
 
 #endif
