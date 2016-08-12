@@ -8,10 +8,14 @@ void communication_interface::terminate()
 {
 }
 
-std::vector<int> communication_interface::get_curr_pos()
+void communication_interface::write_cmd_pos(std::vector<double>)
 {
 }
 
-std::vector<int> communication_interface::update(std::vector<int> jnt_curr_pos_)
+std::vector<double> communication_interface::get_curr_pos()
+{
+}
+
+std::vector<double> communication_interface::update(std::vector<double> act_curr_pos_)
 {
 }
