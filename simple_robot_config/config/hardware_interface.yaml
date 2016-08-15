@@ -2,13 +2,13 @@
 robot:
     n_dof: 3
     update_freq: 1000
-    comm_type: fake # Choose one of these:[fake, ethercat, uart]
+    comm_type: ethercat # Choose one of these:[fake, ethercat, uart]
     joints:
         - joint1
         - joint2
         - joint_eef
     gear_ratios:
-        - 1
-        - 1
-        - 1
+        - 1592 
+        - 1592
+        - 1592
 

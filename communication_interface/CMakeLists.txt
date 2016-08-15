@@ -4,7 +4,9 @@ project(communication_interface)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+	ethercat_igh	
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -97,7 +99,7 @@ find_package(catkin REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES communication_interface
+  LIBRARIES communication_interface ethercat_igh
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
@@ -108,14 +110,17 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(include)
+include_directories(
+	include
+	${catkin_INCLUDE_DIRS}
+)
 
 ## Declare a C++ library
 # add_library(communication_interface
 #   src/${PROJECT_NAME}/communication_interface.cpp
 # )
 add_library(communication_interface src/communication_interface.cpp)
-
+target_link_libraries(communication_interface ethercat_igh ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
