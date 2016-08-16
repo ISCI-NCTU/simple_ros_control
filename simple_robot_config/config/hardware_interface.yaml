@@ -1,7 +1,7 @@
 # For Hardware Interface
 robot:
     n_dof: 2
-    update_freq: 10
+    update_freq: 1000
     comm_type: uart # Choose one of these:[fake, ethercat, uart]
     joints:
         - right_wheel_joint 
