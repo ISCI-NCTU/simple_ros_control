@@ -9,6 +9,7 @@ namespace communication_interface
   void terminate();
   std::vector<double> get_home_pos();
   std::vector<double> update(std::vector<double>);
+  std::vector<double> update_vel(std::vector<double>);
   void write_cmd_pos(std::vector<double>);
 }
 
