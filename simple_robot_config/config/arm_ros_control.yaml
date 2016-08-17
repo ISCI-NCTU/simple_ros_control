@@ -4,7 +4,9 @@
 robot:
     n_dof: 3
     update_freq: 1000
-    comm_type: ethercat # Choose one of these:[fake, ethercat, uart]
+    control_type: pp # Choose one of these: [pp, pv, vp, vv, fake]. 
+                     # If you choose fake, the comm_type has no effect. 
+    comm_type: ethercat # Choose one of these: [ethercat, uart]
     joints: &my_robot_joints [joint1, joint2, joint_eef]
     gear_ratios:
         - 1500
@@ -13,7 +15,8 @@ robot:
 # =========== Custom setting stop ============
 
 
-
+# You can also modify the followings if you know what you are doing.
+#
 # for controller spawner
 arm_joint_state_controller:
     type: joint_state_controller/JointStateController
