@@ -5,7 +5,7 @@ arm_joint_state_controller:
 
 arm_controller:
   type: position_controllers/JointTrajectoryController
-  joints:
-     - joint1 
-     - joint2 
-     - joint_eef 
+  #joints:
+  #- joint1 
+  #- joint2 
+  #- joint_eef 

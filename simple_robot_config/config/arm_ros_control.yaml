@@ -1,0 +1,34 @@
+# These are custom settings (also for hardware interface).
+# Please modify these values to fit your robot.
+# =========== Custom setting start ===========
+robot:
+    n_dof: 3
+    update_freq: 1000
+    comm_type: ethercat # Choose one of these:[fake, ethercat, uart]
+    joints: &my_robot_joints [joint1, joint2, joint_eef]
+    gear_ratios:
+        - 1500
+        - 1500
+        - 1500
+# =========== Custom setting stop ============
+
+
+
+# for controller spawner
+arm_joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints: *my_robot_joints
+
+# for moveit
+move_group:
+  controller_list:
+    - name: ""
+      action_ns: arm_controller/follow_joint_trajectory
+      type: FollowJointTrajectory
+      joints: *my_robot_joints
+
+
