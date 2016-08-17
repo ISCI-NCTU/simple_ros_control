@@ -6,6 +6,7 @@ robot:
     update_freq: 1000
     control_type: pp # Choose one of these: [pp, pv, vp, vv, fake]. 
                      # If you choose fake, the comm_type has no effect. 
+                     # Note: now the fake control_type only works for arm control.
     comm_type: ethercat # Choose one of these: [ethercat, uart]
     joints: &my_robot_joints [joint1, joint2, joint_eef]
     gear_ratios:
