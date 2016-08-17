@@ -9,8 +9,8 @@ extern "C" {
 
 #define IGH_DOF 3
 #define UART_DOF 2
-#define ETHERCAT true 
-#define UART false 
+#define ETHERCAT false 
+#define UART true 
 
 #if UART
 SerialHandle my_port("/dev/ttyUSB0");
