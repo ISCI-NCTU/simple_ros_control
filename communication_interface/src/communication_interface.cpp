@@ -9,8 +9,8 @@ extern "C" {
 
 #define IGH_DOF 3
 #define UART_DOF 2
-#define ETHERCAT false 
-#define UART true 
+#define ETHERCAT true 
+#define UART false 
 
 #if UART
 SerialHandle my_port("/dev/ttyUSB0");
@@ -59,7 +59,8 @@ std::vector<double> communication_interface::get_home_pos()
 #endif
 }
 
-std::vector<double> communication_interface::update(std::vector<double> act_cmd_pos_)
+// Update pos and return pos
+std::vector<double> communication_interface::update_pp(std::vector<double> act_cmd_pos_)
 {
 #if ETHERCAT
 	int cmd_pos_temp_[IGH_DOF];	
@@ -84,7 +85,12 @@ std::vector<double> communication_interface::update(std::vector<double> act_cmd_
 #endif
 }
 
-std::vector<double> communication_interface::update_vel(std::vector<double> act_cmd_vel_)
+// Update pos and return velocity
+std::vector<double> communication_interface::update_pv(std::vector<double> act_cmd_pos_)
+{}
+
+// Update velocity and return velocity
+std::vector<double> communication_interface::update_vv(std::vector<double> act_cmd_vel_)
 {
 #if UART
 	// Write command velocity
@@ -104,8 +110,12 @@ std::vector<double> communication_interface::update_vel(std::vector<double> act_
 		ss_curr_vel_.str("");
 		ss_curr_vel_ << i << "pos\r";
 		my_port.writeData(ss_curr_vel_.str());
-		my_port.readData();
+		//my_port.readData();
 	}
 #endif
 	return act_cmd_vel_;
 }
+
+// Update velocity and return pos
+std::vector<double> communication_interface::update_vp(std::vector<double> act_cmd_vel_)
+{}
