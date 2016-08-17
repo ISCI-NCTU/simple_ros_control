@@ -4,6 +4,8 @@
 robot:
     n_dof: 2
     update_freq: 100
+    control_type: vv # Choose one of these: [pp, pv, vp, vv, fake]. 
+                     # If you choose fake, the comm_type has no effect. 
     comm_type: uart # Choose one of these:[fake, ethercat, uart]
     joints:
         - &right_wheel right_wheel_joint 
@@ -15,7 +17,8 @@ robot:
 
 
 
-# You can also modify the following if you know what you are doing.
+# You can also modify the followings if you know what you are doing.
+#
 # for controller spawner
 diff_joint_state_controller:
   type: "joint_state_controller/JointStateController"
