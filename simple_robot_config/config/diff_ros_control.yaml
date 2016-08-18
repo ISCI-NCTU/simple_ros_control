@@ -3,8 +3,8 @@
 # =========== Custom setting start ===========
 robot:
     n_dof: 2
-    update_freq: 100
-    control_type: vv # Choose one of these: [pp, pv, vp, vv, fake]. 
+    update_freq: 10
+    control_type: vp # Choose one of these: [pp, pv, vp, vv, fake]. 
                      # If you choose fake, the comm_type has no effect. 
                      # Note: now the fake control_type only works for arm control.
     comm_type: uart # Choose one of these:[fake, ethercat, uart]
