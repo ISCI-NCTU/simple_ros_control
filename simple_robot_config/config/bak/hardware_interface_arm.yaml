@@ -1,0 +1,14 @@
+# For Hardware Interface
+robot:
+    n_dof: 3
+    update_freq: 1000
+    comm_type: uart # Choose one of these:[fake, ethercat, uart]
+    joints:
+        - joint1
+        - joint2
+        - joint_eef
+    gear_ratios:
+        - 1 
+        - 1
+        - 1
+
