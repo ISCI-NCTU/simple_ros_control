@@ -127,25 +127,34 @@ std::vector<double> communication_interface::update_vv(std::vector<double> act_c
 	}
 	else if(control_type_ == "uart")
 	{
-		// Write command velocity
-		std::stringstream ss_cmd_vel_;
-		for(int i = 0; i < act_cmd_vel_.size(); i++)
-		{
-			ss_cmd_vel_.str("");
-			ss_cmd_vel_ << i << "v" << act_cmd_vel_[i] << "\r";
-			my_port.writeData(ss_cmd_vel_.str());
-		}
-
 		// Read command velocity 
 		// (Fake, just show on the terminal, not updating)
 		std::stringstream ss_curr_vel_;
 		for(int i = 0; i < act_cmd_vel_.size(); i++)
 		{
 			ss_curr_vel_.str("");
-			ss_curr_vel_ << i << "pos\r";
+			ss_curr_vel_ << i + 1 << "pos\r";
 			my_port.writeData(ss_curr_vel_.str());
-			//my_port.readData();
+			std::cout << my_port.readData() << std::endl;
 		}
+
+		// Write command velocity
+		std::stringstream ss_cmd_vel_;
+		for(int i = 0; i < act_cmd_vel_.size(); i++)
+		{
+			ss_cmd_vel_.str("");
+			if(i % 2 == 0)
+			{
+				ss_cmd_vel_ << i + 1 << "v" << -act_cmd_vel_[i] << "\r";
+				my_port.writeData(ss_cmd_vel_.str());
+			}
+			else
+			{
+				ss_cmd_vel_ << i + 1 << "v" << act_cmd_vel_[i] << "\r";
+				my_port.writeData(ss_cmd_vel_.str());
+			}
+		}
+
 		return act_cmd_vel_;
 	}
 }
