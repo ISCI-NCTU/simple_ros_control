@@ -3,11 +3,9 @@
 
 #include <vector>
 #include <string>
-#include <uart_faulhaber/uart_faulhaber.h>
 
 namespace communication_interface 
 {
-  SerialHandle my_port;
   std::string control_type_;
   int n_dof_;
 

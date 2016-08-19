@@ -83,7 +83,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>20</updateRate>
-        <cameraName>asusbot_diff/camera</cameraName>
+        <cameraName>simplebot_diff/camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera_link</frameName>
@@ -123,7 +123,7 @@
           <gaussianNoise>0.005</gaussianNoise>
           <alwaysOn>true</alwaysOn>
           <updateRate>40</updateRate>
-		  <topicName>asusbot_diff/laser/scan</topicName>
+		  <topicName>simplebot_diff/laser/scan</topicName>
           <frameName>hokuyo_link</frameName>
           <hokuyoMinIntensity>101</hokuyoMinIntensity>
         </plugin>
@@ -157,7 +157,7 @@
           </noise>
         </ray>
         <plugin name="hokuyo_node" filename="libgazebo_ros_laser.so">
-          <topicName>asusbot_diff/laser/scan</topicName>
+          <topicName>simplebot_diff/laser/scan</topicName>
           <frameName>hokuyo_link</frameName>
         </plugin>
       </sensor>

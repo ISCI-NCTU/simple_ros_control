@@ -4,10 +4,7 @@ project(communication_interface)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-	ethercat_igh	
-	uart_faulhaber
-)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -101,7 +98,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES communication_interface 
-  CATKIN_DEPENDS uart_faulhaber ethercat_igh
+#  CATKIN_DEPENDS 
 #  DEPENDS system_lib
 )
 
@@ -121,7 +118,7 @@ include_directories(
 #   src/${PROJECT_NAME}/communication_interface.cpp
 # )
 add_library(communication_interface src/communication_interface.cpp)
-target_link_libraries(communication_interface ethercat_igh uart_faulhaber ${catkin_LIBRARIES})
+target_link_libraries(communication_interface ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
