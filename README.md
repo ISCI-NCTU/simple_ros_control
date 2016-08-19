@@ -16,6 +16,9 @@ The main idea is that all the ROS control works are done in the **simple_ros_con
 while all the custom settings are in the remaining packages.
 More clearly, whenever **simple_ros_control_main** updates, you don't have to change the custom settings.
 
-So, let me explain the packages:
-
+# Package Explaination
+- **simple_ros_control**: 
+Just for metapackage informations.
+- **simple_ros_control_main**:
+The main work for ROS control, including hardware_interface, transmission_interface..., etc. Users don't need to modify this package.
 
