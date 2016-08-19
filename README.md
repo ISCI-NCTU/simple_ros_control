@@ -23,6 +23,17 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
 
 \*1:This is beacuse I want to make **simple_ros_control_main** independent. More clearly, whenever **simple_ros_control_main** updates, different robots don't have to modify the motor communication functions. If you have better ideas, please tell me. Thanks!
 
+# Environment
+ - Ubuntu 14.04 LTS
+ - ROS indigo
+ - LibSerial-0.6.0rc2
+ - IGH
+ - Faulhaber Controller
+ - Panasonic MBDHT2510BA1 driver
+
+# Prequest
+Install [LibSerial](https://sourceforge.net/projects/libserial/files/?source=navbar) first, and here is the [documentation](http://libserial.sourceforge.net/). Also, install [IGH](http://www.etherlab.org/en/ethercat/) (see github wiki).
+(Please run **$sudo ldconfig** after installation, or there may be some errors while starting the iceira_diff_control node)
 
 # Demo 1: Fake Update
 Edit the config file:
