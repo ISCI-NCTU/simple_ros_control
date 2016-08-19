@@ -35,6 +35,37 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
 Install [LibSerial](https://sourceforge.net/projects/libserial/files/?source=navbar) first, and here is the [documentation](http://libserial.sourceforge.net/). Also, install [IGH](http://www.etherlab.org/en/ethercat/) (see github wiki).
 (Please run **$sudo ldconfig** after installation, or there may be some errors while starting the iceira_diff_control node)
 
+#Installation
+Do the followings in your ros workspace.
+Clone this metapackage:
+```
+git clone https://github.com/willie5588912/simple_ros_control.git -b own-usage
+```
+Clone submodule:
+```
+cd simple_ros_control
+git submodule init
+git submodule update
+```
+Back to workspace:
+```
+cd ..
+```
+Clone **uart_faulhaber**:
+```
+https://github.com/willie5588912/uart_faulhaber.git
+```
+Clone **ethercat_igh**:
+```
+https://github.com/willie5588912/ethercat_igh.git
+```
+Compile:
+```
+cd ..
+catkin_make
+```
+
+
 # Demo 1: Fake Update
 Edit the config file:
 ```
