@@ -24,7 +24,7 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
 \*1:This is beacuse I want to make **simple_ros_control_main** independent. More clearly, whenever **simple_ros_control_main** updates, different robots don't have to modify the motor communication functions. If you have better ideas, please tell me. Thanks!
 
 
-# Demo
+# Demo 1: Fake Update
 Edit the config file:
 ```
 rosed simple_robot_config arm_ros_control.yaml
@@ -47,3 +47,7 @@ roslaunch simple_ros_control_main moveit_bringup.launch
 ```
 
 Drag the robot arm, and then press **plan and execuate**, you can see the joints and actuators value change in the terminal running **simple_ros_control_main** node. The actuator values shown will be passed to the **communication_interface**. So you can use these values to write into your motors.
+
+# Demo 2: EtherCAT
+Come to my seat and turn on the Panasonic A5B drivers, plug the ethercat line in your computer.
+
