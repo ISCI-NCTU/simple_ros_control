@@ -50,4 +50,32 @@ Drag the robot arm, and then press **plan and execuate**, you can see the joints
 
 # Demo 2: EtherCAT
 Come to my seat and turn on the Panasonic A5B drivers, plug the ethercat line in your computer.
-
+Edit the config file:
+```
+rosed simple_robot_config arm_ros_control.yaml
+```
+Change the **control_type** to **pp**, namely:
+```
+control_type: pp
+```
+Launch IGH:
+```
+sudo /etc/init.d/ethercat start
+```
+```
+sudo chmod a+w /dev/EtherCAT0
+```
+Launch controllers and some other things:
+```
+roslaunch simple_ros_control_main arm_ros_control.launch
+```
+Run the ROS control node:
+```
+rosrun simple_ros_control_main simple_ros_control_main
+```
+Now you should hear the sound "click" of the driver servo on.
+Then launch moveit:
+```
+roslaunch simple_ros_control_main moveit_bringup.launch
+```
+Drag the robot arm, and then press **plan and execuate**, you can see the motor rotates, too. The joints and actuators values also show in the terminal running **simple_ros_control_main** node. The actuator values will be written to the dirver via the **communication_interface**.
