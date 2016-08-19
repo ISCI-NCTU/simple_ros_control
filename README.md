@@ -24,7 +24,7 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
 \*1:This is beacuse I want to make **simple_ros_control_main** independent. More clearly, whenever **simple_ros_control_main** updates, different robots don't have to modify the motor communication functions. If you have better ideas, please tell me. Thanks!
 
 
-# demo
+# Demo
 Edit the config file:
 ```
 rosed simple_robot_config arm_ros_control.yaml
