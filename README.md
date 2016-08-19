@@ -37,7 +37,7 @@ Launch controllers and some other things:
 ```
 roslaunch simple_ros_control_main arm_ros_control.launch
 ```
-Run the main control node: (you can see joints and actuators value here)
+Run the main control node:
 ```
 rosrun simple_ros_control_main simple_ros_control_main
 ```
@@ -46,4 +46,4 @@ Launch moveit:
 roslaunch simple_ros_control_main moveit_bringup.launch
 ```
 
-Drag the robot arm, and then press **plan and execuate**, you can see the joints and actuators value change in the terminal running **simple_ros_control_main** node. The actuator values shown will be passed to the **communication_interface**. So you can use these valuse to write into your motors.
+Drag the robot arm, and then press **plan and execuate**, you can see the joints and actuators value change in the terminal running **simple_ros_control_main** node. The actuator values shown will be passed to the **communication_interface**. So you can use these values to write into your motors.
