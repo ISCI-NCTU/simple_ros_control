@@ -27,7 +27,7 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
  - Ubuntu 14.04 LTS
  - ROS indigo
  - LibSerial-0.6.0rc2
- - IGH
+ - IGH master 1.5.2
  - Faulhaber Controller
  - Panasonic MBDHT2510BA1 driver
 
