@@ -15,7 +15,11 @@ The main package for ROS control, including hardware_interface, transmission_int
 - **communication_interface**:
 You have to implement your communication functions here to fit your robots. Notice that all the functions defined here, such as **init()** and **update_pp()**, will be called by **simple_ros_control_main** package. So please don't add or delete functions. Just implement the what the function wants. (This is beacuse I want to make **simple_ros_control_main** independent. More clearly, whenever **simple_ros_control_main** updates, different robots don't have to modify the motor communication functions. If you have better ideas, please tell me. Thanks!)
 - **simple_robot_description**:
-You have to
+You have to put your urdf here, with their names "simple_diff_robot.xacro"(if a differential drive platform) or "simple_robot.urdf"(if a robot arm). I will change these names to make more sense in the future.
+- **simple_robot_moveit_config**:
+If you use a robot arm, please put your moveit config here. Please DON'T change the package name (namely, **simple_robot_moveit_config**) because the package will be called by **simple_ros_control_main**.
+- **simple_robot_config**: 
+There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.yaml**. Modify the content, including degree of freedom, gear ratios, update frequency..., etc. to fit your robots.
 
 You can change the \*.yaml in **simple_robot_config** to fit your own robot, 
 including degree of freedom, gear ratios, update frequency..., etc.
