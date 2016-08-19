@@ -1,6 +1,7 @@
 # Disclaimer
 This project isn't complete, and also not general enough. It only works for my own dirver now.
 However, the project can still be modified to your own usage if you understand this project enough.
+In the branch own-uasage, you can see how I use this project (mainly for **communication_interface**), although you may not able to run due to different hardware.
 
 # Introduction
 This project is dedicated to create a ROS Control tool that you can control your physical robot with ease. 
