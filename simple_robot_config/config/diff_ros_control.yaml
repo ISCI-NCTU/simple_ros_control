@@ -12,8 +12,8 @@ robot:
         - &right_wheel right_wheel_joint 
         - &left_wheel left_wheel_joint 
     gear_ratios:
-        - 40 
-        - 40 
+        - 24.5 
+        - 19 
 # =========== Custom setting stop ============
 
 

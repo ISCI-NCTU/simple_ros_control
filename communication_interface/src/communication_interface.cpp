@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <stdlib.h>
 #include <communication_interface/communication_interface.h>
 #include <uart_faulhaber/uart_faulhaber.h>
 
@@ -130,12 +131,16 @@ std::vector<double> communication_interface::update_vv(std::vector<double> act_c
 		// Read command velocity 
 		// (Fake, just show on the terminal, not updating)
 		std::stringstream ss_curr_vel_;
+		std::string curr_pos_str_;
+		std::vector<double> act_curr_pos_;
+		int curr_pos_int_;
 		for(int i = 0; i < act_cmd_vel_.size(); i++)
 		{
 			ss_curr_vel_.str("");
 			ss_curr_vel_ << i + 1 << "pos\r";
 			my_port.writeData(ss_curr_vel_.str());
-			std::cout << my_port.readData() << std::endl;
+			curr_pos_int_ = atoi((my_port.readData()).c_str());
+			act_curr_pos_.push_back(curr_pos_int_);
 		}
 
 		// Write command velocity
@@ -155,7 +160,7 @@ std::vector<double> communication_interface::update_vv(std::vector<double> act_c
 			}
 		}
 
-		return act_cmd_vel_;
+		return act_curr_pos_;
 	}
 }
 
