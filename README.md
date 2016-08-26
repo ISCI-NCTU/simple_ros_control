@@ -66,14 +66,9 @@ Launch controllers and some other things:
 ```
 roslaunch simple_ros_control_main arm_ros_control.launch
 ```
-Option 1: no-realtime node
+Run the ROS control node:
 ```
 rosrun simple_ros_control_main simple_ros_control_main
-```
-Option 2: realtime node
-```
-roscd simple_ros_control_main
-./sp_main_rtt.ops
 ```
 Launch moveit:
 ```
@@ -103,9 +98,14 @@ Launch controllers and some other things:
 ```
 roslaunch simple_ros_control_main arm_ros_control.launch
 ```
-Run the ROS control node:
+Option 1: no-realtime node
 ```
 rosrun simple_ros_control_main simple_ros_control_main
+```
+Option 2: realtime node
+```
+roscd simple_ros_control_main
+./sp_main_rtt.ops
 ```
 Now you should hear the sound "click" of the driver servo on.
 Then launch moveit:
