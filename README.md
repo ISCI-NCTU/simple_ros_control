@@ -22,10 +22,6 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
  - Faulhaber Controller
  - Panasonic MBDHT2510BA1 driver
 
-# Prequest
-Install [LibSerial](https://sourceforge.net/projects/libserial/files/?source=navbar) first, and here is the [documentation](http://libserial.sourceforge.net/). Also, install [IGH](http://www.etherlab.org/en/ethercat/) (see github wiki).
-(Please run **$sudo ldconfig** after installation, or there may be some errors while starting the iceira_diff_control node)
-
 #Installation
 Do the followings in your ros workspace.
 Clone this metapackage:
