@@ -26,7 +26,7 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
 Do the followings in your ros workspace.
 Clone this metapackage:
 ```
-git clone https://github.com/willie5588912/simple_ros_control.git -b own-usage
+git clone https://github.com/willie5588912/simple_ros_control.git -b own-master
 ```
 Clone submodule:
 ```
