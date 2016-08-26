@@ -66,9 +66,14 @@ Launch controllers and some other things:
 ```
 roslaunch simple_ros_control_main arm_ros_control.launch
 ```
-Run the main control node:
+Option 1: no-realtime node
 ```
 rosrun simple_ros_control_main simple_ros_control_main
+```
+Option 2: realtime node
+```
+roscd simple_ros_control_main
+./sp_main_rtt.ops
 ```
 Launch moveit:
 ```
