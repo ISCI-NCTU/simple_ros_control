@@ -1,12 +1,5 @@
 # Disclaimer
-This project isn't complete, and also not general enough. It only works for my own dirver now.
-However, the project can still be modified to your own usage if you understand this project enough.
-In the branch own-uasage, you can see how I use this project (mainly for **communication_interface**), although you may not able to run due to different hardware.
-
-# Introduction
-This project is dedicated to create a ROS Control tool that you can control your physical robot with ease. 
-If you have multiple robots, with different motors, degree of freedom ..., etc. All of them can use this project.
-For example, I have a simple robot arm and a differential drive platform robot. Both of them can share the same code with their own settings. This will be shown later.
+This project isn't complete, and also not general enough. Please take care of this.
 
 # Package Explaination
 - **simple_ros_control**: 
