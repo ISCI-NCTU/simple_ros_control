@@ -2,11 +2,6 @@
 This project isn't complete, and also not general enough. It only works for my own dirver now.
 However, the project can still be modified to your own usage if you understand this project enough.
 
-# Introduction
-This project is dedicated to create a ROS Control tool that you can control your physical robot with ease. 
-If you have multiple robots, with different motors, degree of freedom ..., etc. All of them can use this project.
-For example, I have a simple robot arm and a differential drive platform robot. Both of them can share the same code with their own settings. This will be shown later.
-
 # Package Explaination
 - **simple_ros_control**: 
 Just for metapackage informations.
@@ -23,11 +18,7 @@ There are two .yaml here now: **arm_ros_control.yaml** and **diff_ros_control.ya
 
 \*1:This is beacuse I want to make **simple_ros_control_main** independent. More clearly, whenever **simple_ros_control_main** updates, different robots don't have to modify the motor communication functions. If you have better ideas, please tell me. Thanks!
 
-# Environment
- - Ubuntu 14.04 LTS
- - ROS indigo
- - LibSerial-0.6.0rc2
- - IGH master 1.5.2
+# Hardwares
  - Faulhaber Controller
  - Panasonic MBDHT2510BA1 driver
 
