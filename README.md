@@ -40,11 +40,11 @@ cd ..
 ```
 Clone **uart_faulhaber**:
 ```
-https://github.com/willie5588912/uart_faulhaber.git
+git clone https://github.com/willie5588912/uart_faulhaber.git
 ```
 Clone **ethercat_igh**:
 ```
-https://github.com/willie5588912/ethercat_igh.git
+git clone https://github.com/willie5588912/ethercat_igh.git
 ```
 Compile:
 ```
