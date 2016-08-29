@@ -12,8 +12,8 @@ robot:
         - &right_wheel right_wheel_joint 
         - &left_wheel left_wheel_joint 
     gear_ratios:
-        - 19 
-        - 19 
+        - 222
+        - 222 
 # =========== Custom setting stop ============
 
 
@@ -41,7 +41,7 @@ diff_drive_controller:
   # diff_drive_controller will attempt to read either one or both from the
   # URDF if not specified as a parameter
   wheel_separation : 0.499 
-  wheel_radius : 0.057
+  wheel_radius : 0.075
 
   # Wheel separation and radius multipliers
   wheel_separation_multiplier: 1.0 # default: 1.0
@@ -61,8 +61,8 @@ diff_drive_controller:
       max_velocity           : 0.2  # m/s
       min_velocity           : -0.2 # m/s
       has_acceleration_limits: true
-      max_acceleration       : 0.3  # m/s^2
-      min_acceleration       : -0.3 # m/s^2
+      max_acceleration       : 0.1  # m/s^2
+      min_acceleration       : -0.1 # m/s^2
   angular:
     z:
       has_velocity_limits    : true
