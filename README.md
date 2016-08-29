@@ -49,7 +49,7 @@ git clone https://github.com/willie5588912/ethercat_igh.git
 Compile:
 ```
 cd ..
-catkin_make
+catkin_make -j$(nproc)
 ```
 
 
