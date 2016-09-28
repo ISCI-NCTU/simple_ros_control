@@ -4,7 +4,7 @@
 robot:
     n_dof: 2
     update_freq: 10
-    control_type: fake # Choose one of these: [pp, pv, vp, vv, fake]. 
+    control_type: vp # Choose one of these: [pp, pv, vp, vv, fake]. 
                      # If you choose fake, the comm_type has no effect. 
                      # Note: now the fake control_type only works for arm control.
     comm_type: uart # Choose one of these:[fake, ethercat, uart]
@@ -12,8 +12,8 @@ robot:
         - &right_wheel right_wheel_joint 
         - &left_wheel left_wheel_joint 
     gear_ratios:
-        - 222
-        - 222 
+        - 66.7 
+        - 66.7
 # =========== Custom setting stop ============
 
 
@@ -40,8 +40,8 @@ diff_drive_controller:
   # Wheel separation and diameter. These are both optional.
   # diff_drive_controller will attempt to read either one or both from the
   # URDF if not specified as a parameter
-  wheel_separation : 0.499 
-  wheel_radius : 0.075
+  wheel_separation : 0.38 
+  wheel_radius : 0.113
 
   # Wheel separation and radius multipliers
   wheel_separation_multiplier: 1.0 # default: 1.0

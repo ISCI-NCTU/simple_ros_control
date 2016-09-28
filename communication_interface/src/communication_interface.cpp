@@ -9,7 +9,10 @@ extern "C" {
 }
 
 #define PI 3.1415926
-#define ENC_FULL 227328
+//#define ENC_FULL 227328
+//#define ENC_FULL 132188 
+// This is the encoder count of the ACTUATOR full revolution.
+#define ENC_FULL 1981 
 
 void communication_interface::init(std::string m_control_type_, int m_n_dof_)
 {
@@ -202,7 +205,7 @@ std::vector<double> communication_interface::update_vp(std::vector<double> act_c
 			if(i % 2 == 0)
 			{
 				ss_cmd_vel_ << i + 1 << "v" << (act_cmd_vel_[i] * (30 / PI)) << "\r";
-				//std::cout << ss_cmd_vel_.str() << std::endl;
+				std::cout << ss_cmd_vel_.str() << std::endl;
 				my_port.writeData(ss_cmd_vel_.str());
 			}
 			else
