@@ -12,8 +12,10 @@ robot:
         - &right_wheel right_wheel_joint 
         - &left_wheel left_wheel_joint 
     gear_ratios:
-        - 66.7 
-        - 66.7
+        - 222.22 
+        - 222.22 
+        #- 66.7
+        #- 66.7
 # =========== Custom setting stop ============
 
 
@@ -40,8 +42,10 @@ diff_drive_controller:
   # Wheel separation and diameter. These are both optional.
   # diff_drive_controller will attempt to read either one or both from the
   # URDF if not specified as a parameter
-  wheel_separation : 0.38 
-  wheel_radius : 0.113
+  #wheel_separation : 0.38 
+  wheel_separation : 0.129 
+  #wheel_radius : 0.113
+  wheel_radius : 0.078
 
   # Wheel separation and radius multipliers
   wheel_separation_multiplier: 1.0 # default: 1.0
