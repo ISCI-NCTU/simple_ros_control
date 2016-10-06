@@ -1,11 +1,18 @@
 #include <iostream>
 #include <sstream>
+#include <stdlib.h>
 #include <communication_interface/communication_interface.h>
 #include <uart_faulhaber/uart_faulhaber.h>
 
 extern "C" {
 	#include <ethercat_igh/ethercat_igh.h>
 }
+
+#define PI 3.1415926
+//#define ENC_FULL 227328
+//#define ENC_FULL 132188 
+// This is the encoder count of the ACTUATOR full revolution.
+#define ENC_FULL 1981 
 
 void communication_interface::init(std::string m_control_type_, int m_n_dof_)
 {
@@ -130,12 +137,16 @@ std::vector<double> communication_interface::update_vv(std::vector<double> act_c
 		// Read command velocity 
 		// (Fake, just show on the terminal, not updating)
 		std::stringstream ss_curr_vel_;
+		std::string curr_pos_str_;
+		std::vector<double> act_curr_pos_;
+		int curr_pos_int_;
 		for(int i = 0; i < act_cmd_vel_.size(); i++)
 		{
 			ss_curr_vel_.str("");
 			ss_curr_vel_ << i + 1 << "pos\r";
 			my_port.writeData(ss_curr_vel_.str());
-			std::cout << my_port.readData() << std::endl;
+			curr_pos_int_ = atoi((my_port.readData()).c_str());
+			act_curr_pos_.push_back(curr_pos_int_);
 		}
 
 		// Write command velocity
@@ -155,7 +166,7 @@ std::vector<double> communication_interface::update_vv(std::vector<double> act_c
 			}
 		}
 
-		return act_cmd_vel_;
+		return act_curr_pos_;
 	}
 }
 
@@ -168,6 +179,43 @@ std::vector<double> communication_interface::update_vp(std::vector<double> act_c
 	}
 	else if(control_type_ == "uart")
 	{
-		//TODO
+		// Read command velocity 
+		// (Fake, just show on the terminal, not updating)
+		std::stringstream ss_curr_vel_;
+		std::string curr_pos_str_;
+		std::vector<double> act_curr_pos_;
+		float curr_pos_temp_;
+		for(int i = 0; i < act_cmd_vel_.size(); i++)
+		{
+			ss_curr_vel_.str("");
+			ss_curr_vel_ << i + 1 << "pos\r";
+			my_port.writeData(ss_curr_vel_.str());
+			curr_pos_temp_ = ((float)atoi((my_port.readData()).c_str()) / ENC_FULL) * (2 * PI);
+			//std::cout << curr_pos_temp_ << std::endl;
+			act_curr_pos_.push_back(curr_pos_temp_);
+		}
+
+		act_curr_pos_[1] *= -1;
+
+		// Write command velocity
+		std::stringstream ss_cmd_vel_;
+		for(int i = 0; i < act_cmd_vel_.size(); i++)
+		{
+			ss_cmd_vel_.str("");
+			if(i % 2 == 0)
+			{
+				ss_cmd_vel_ << i + 1 << "v" << (act_cmd_vel_[i] * (30 / PI)) << "\r";
+				std::cout << ss_cmd_vel_.str() << std::endl;
+				my_port.writeData(ss_cmd_vel_.str());
+			}
+			else
+			{
+				ss_cmd_vel_ << i + 1 << "v" << -(act_cmd_vel_[i] * (30 / PI)) << "\r";
+				my_port.writeData(ss_cmd_vel_.str());
+			}
+		}
+
+		return act_curr_pos_;
 	}
+
 }
