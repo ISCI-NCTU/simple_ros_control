@@ -180,7 +180,6 @@ std::vector<double> communication_interface::update_vp(std::vector<double> act_c
 	else if(control_type_ == "uart")
 	{
 		// Read command velocity 
-		// (Fake, just show on the terminal, not updating)
 		std::stringstream ss_curr_vel_;
 		std::string curr_pos_str_;
 		std::vector<double> act_curr_pos_;
@@ -218,4 +217,33 @@ std::vector<double> communication_interface::update_vp(std::vector<double> act_c
 		return act_curr_pos_;
 	}
 
+}
+
+// Update velocity
+void communication_interface::update_vp_fake(std::vector<double> act_cmd_vel_)
+{
+	if(control_type_ == "ethercat")
+	{
+		//TODO
+	}
+	else if(control_type_ == "uart")
+	{
+		// Write command velocity
+		std::stringstream ss_cmd_vel_;
+		for(int i = 0; i < act_cmd_vel_.size(); i++)
+		{
+			ss_cmd_vel_.str("");
+			if(i % 2 == 0)
+			{
+				ss_cmd_vel_ << i + 1 << "v" << (act_cmd_vel_[i] * (30 / PI)) << "\r";
+				std::cout << ss_cmd_vel_.str() << std::endl;
+				my_port.writeData(ss_cmd_vel_.str());
+			}
+			else
+			{
+				ss_cmd_vel_ << i + 1 << "v" << -(act_cmd_vel_[i] * (30 / PI)) << "\r";
+				my_port.writeData(ss_cmd_vel_.str());
+			}
+		}
+	}
 }
