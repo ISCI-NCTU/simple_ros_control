@@ -8,7 +8,6 @@ robot:
                      # If you choose fake, the comm_type has no effect. 
                      # Note: now the fake control_type only works for arm control.
     comm_type: uart # Choose one of these:[fake, ethercat, uart]
-    fake_odom: true # This only works in diff_control
     joints:
         - &right_wheel right_wheel_joint 
         - &left_wheel left_wheel_joint 
@@ -17,6 +16,7 @@ robot:
         #- 222.22 
         - 66.7
         - 66.7
+    fake_odom: real_odom # Choose one of these: [fake_odom, real_odom]
 # =========== Custom setting stop ============
 
 

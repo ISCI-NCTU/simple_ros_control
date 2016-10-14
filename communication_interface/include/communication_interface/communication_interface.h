@@ -18,6 +18,7 @@ namespace communication_interface
   std::vector<double> update_pv(std::vector<double>);
   std::vector<double> update_vv(std::vector<double>);
   std::vector<double> update_vp(std::vector<double>);
+  void update_vp_fake(std::vector<double>);
   void write_cmd_pos(std::vector<double>);
 }
 
